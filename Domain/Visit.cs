@@ -8,6 +8,7 @@ namespace Domain
         public int Temperature { get; set; }
         public string Action { get; set; }
         public DateTime Date { get; set; }
+        public Guid CustomerId { get; set; }
 
     }
 }
