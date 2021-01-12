@@ -46,7 +46,8 @@ namespace Api
             {
 	            opt.AddPolicy("CorsPolicy", policy => 
 	            {
-		        policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("capacitor://localhost","ionic://localhost","http://localhost","http://localhost:8080","http://localhost:8100");
+		        policy.AllowAnyHeader().AllowAnyMethod().
+                WithOrigins("capacitor://localhost","ionic://localhost","http://localhost","http://localhost:8080","http://localhost:8100","https://heusc.com","https://chbcqr.web.app");
 	            });
             });
             services.AddMediatR(typeof(List.Handler).Assembly);
@@ -98,6 +99,11 @@ namespace Api
             {
               
             }
+            else 
+            {
+                // app.UseHsts();
+            }
+            // app.UseHttpsRedirection();
             app.UseRouting();
             app.UseCors("CorsPolicy");
             app.UseAuthentication();

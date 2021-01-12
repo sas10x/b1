@@ -192,6 +192,9 @@ namespace Persistence.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Mobile")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Sex")
                         .HasColumnType("nvarchar(max)");
 

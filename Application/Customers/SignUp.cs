@@ -19,6 +19,7 @@ namespace Application.Customers
         public int Age { get; set; }
         public string Barangay { get; set; }
         public string City { get; set; }
+        public string Mobile { get; set; }
         
         }
 
@@ -32,6 +33,7 @@ namespace Application.Customers
                 RuleFor(x => x.Age).GreaterThan(18).WithMessage("Should be greater than 18");
                 RuleFor(x => x.Barangay).MaximumLength(255);
                 RuleFor(x => x.City).MaximumLength(255);
+                RuleFor(x => x.Mobile).MaximumLength(255);
             }
         }
         public class Handler : IRequestHandler<Command, Guid>
@@ -51,10 +53,12 @@ namespace Application.Customers
                     LastName = request.LastName,
                     Sex = request.Sex,
                     Age = request.Age,
+                    Mobile = request.Mobile,
                     Barangay = request.Barangay,
                     City = request.City,
-                    Date = DateTime.Now
+                    Date = DateTime.Now,
                 };
+                // throw new Exception(request.Mobile);
                 _context.Customers.Add(customer);
                 var success = await _context.SaveChangesAsync() > 0;
                 

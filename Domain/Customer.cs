@@ -12,5 +12,6 @@ namespace Domain
         public string Barangay { get; set; }
         public string City { get; set; }
         public DateTime Date { get; set; }
+        public string Mobile { get; set; }
     }
 }
